@@ -1,0 +1,60 @@
+@import '../vendor/reset.css';
+@import '../vendor/fonts/fonts.css';
+@import '../vendor/color-variables.css';
+@import '../partials/temp-menu/temp-menu.css';
+
+/* Потом удалить */
+.temp-link {
+  text-decoration: none;
+}
+
+/* Основные */
+html {
+  height: 100%;
+}
+
+*, *::after, *::before {
+  box-sizing: border-box;
+}
+
+body {
+  height: 100%;
+  color: var(--text-primary);
+  font-family: Inter, Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  text-rendering: optimizeLegibility;
+  background-color: var(--first-color);
+  font-synthesis: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#app {
+  display: flex;
+  flex-flow: column nowrap;
+  max-width: 1280px;
+  margin: 0 auto;
+  height: 100%;
+}
+
+/* общие свойства */
+.text-link {
+  text-decoration: none;
+  transition: .3s linear;
+  opacity: 1;
+}
+
+.text-link:hover {
+  opacity: .8;
+}
+
+.btn-link {
+  transition: .3s linear;
+  opacity: 1;
+}
+
+.btn-link:hover {
+  transition: .3s linear;
+  opacity: .9;
+}

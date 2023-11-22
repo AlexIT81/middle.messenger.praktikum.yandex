@@ -1,14 +1,18 @@
-<!doctype html>
-<html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Войти</title>
-  </head>
-  <body>
-    <div id="app">Войти</div>
-
-    <script type="module" src="./login.js"></script>
-  </body>
-</html>
+{{#> page/page title="Войти" script="./login.js"}}
+<section class="login">
+  <div class="login__wrapper">
+    <h1 class="login__title">Вход</h1>
+    <form class="login__form" name="login">
+      <div class="login__inputs-wrapper">
+        {{> input/input label="Логин" placeholder="login" name="login" type="text"}}
+        {{> input/input label="Пароль" placeholder="password" name="password" type="password" error="ошибка инпута"}}
+      </div>
+      <div class="login__buttons-wrapper">
+        <p class="login__error-message">Ошибки API</p>
+        {{> button/button label="Войти" type="submit" disabled=false}}
+        <a class="login__link text-link" href="../register/">Нет аккаунта?</a>
+      </div>
+    </form>
+  </div>
+</section>
+{{/page/page}}

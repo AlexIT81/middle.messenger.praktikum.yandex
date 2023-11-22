@@ -1,0 +1,14 @@
+<div class="input-profile">
+  <label class="input-profile__wrapper">
+    <span class="input-profile__label">{{label}}</span>
+    <input
+      class="input-profile__inner {{#if error}}input-profile__inner_error{{/if}}"
+      placeholder={{placeholder}}
+      name={{name}}
+      type={{type}}
+      value={{value}}
+      {{#if disabled}}disabled{{/if}}
+    />
+  </label>
+  <p class="input-profile__error">{{error}}</p>
+</div>

@@ -1,0 +1,22 @@
+.input-text {
+  font-family: Inter;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid var(--main-color);
+  width: 100%;
+  padding-bottom: 4px;
+}
+
+.input-text:focus-visible, .input-text:focus {
+  border-bottom: 1px solid var(--main-color-medium);
+}
+
+.input-text::placeholder {
+  font-size: 13px;
+  line-height: 13px;
+  color: var(--text-primary-light);
+}

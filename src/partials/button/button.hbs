@@ -1,1 +1,3 @@
-<button type="button">{{label}}</button>
+<button type={{type}} class='button btn-link {{#if disabled}}button_disabled{{/if}}' {{#if disabled}}disabled{{/if}}>
+  {{label}}
+</button>

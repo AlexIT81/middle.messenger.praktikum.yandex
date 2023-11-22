@@ -1,10 +1,11 @@
 :root {
-  --main-color: #2F80ED /* rgba(47, 128, 237, 1) */
-  --main-color-light: rgba(47, 128, 237, .1) /* Фон светлоголубой от синего */
+  --main-color: #2F80ED; /* rgba(47, 128, 237, 1) */
+  --main-color-medium: rgba(47, 128, 237, .5); /* rgba(47, 128, 237, 1) */
+  --main-color-light: rgba(47, 128, 237, .1); /* Фон светлоголубой от синего */
   --first-color: #ffffff;
-  --secondary-color: #F7F7F7 /* серый */
+  --secondary-color: #F7F7F7; /* серый */
   --text-primary: #1B1A57;
-  --text-primary-light: rgba(27, 26, 87, 0.50)
+  --text-primary-light: rgba(27, 26, 87, 0.50);
   --text-secondary: #4F5E7B;
   --error-color: #E01A3E;
   --online-color: #25AF64;

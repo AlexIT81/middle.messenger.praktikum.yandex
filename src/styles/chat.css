@@ -1,0 +1,162 @@
+.header {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  height: 60px;
+  width: 100%;
+  border-left: 1px solid var(--main-color);
+  border-right: 1px solid var(--main-color);
+}
+
+.header-aside {
+  border-right: 1px solid var(--main-color);
+  padding: 6px 24px 8px 19px;
+}
+
+.header-aside__title {
+  color: var(--text-primary);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: 0.8px;
+}
+
+.search {
+  width: 100%;
+  margin-top: 2px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.search__button {
+  cursor: pointer;
+  background: url(../assets/icons/button_search.svg) no-repeat center;
+  width: 24px;
+  height: 24px;
+  border: none;
+  outline: none;
+}
+
+.header-main {
+  background: var(--secondary-color);
+  padding: 6px 14px 6px 21px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-main__avatar-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  gap: 15px;
+  align-items: center;
+}
+
+.header-main__avatar-separator {
+  width: 30px;
+  height: 30px;
+  background: url(../assets/icons/and.svg) center no-repeat;
+}
+
+.header-main__menu-button {
+  cursor: pointer;
+  background: url(../assets/icons/menu_burger_header.svg) no-repeat center;
+  width: 30px;
+  height: 30px;
+  border: none;
+  outline: none;
+}
+
+/* Основная секция  */
+.main {
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  height: 100%;
+  max-height: calc(100% - 60px - 60px);
+  width: 100%;
+  border-left: 1px solid var(--main-color);
+  border-right: 1px solid var(--main-color);
+}
+
+.chats {
+  background: var(--secondary-color);
+  border-right: 1px solid var(--main-color);
+  padding: 23px 10px 0 10px;
+  display: flex;
+  overflow-y: auto;
+  flex-flow: column nowrap;
+  gap: 14px;
+}
+
+/* Переписка в чате */
+.chat {
+  background: linear-gradient(180deg, var(--first-color) 0%, var(--secondary-color) 100%);
+  padding: 15px 25px 0;
+  position: relative;
+  overflow-y: auto;
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 15px;
+}
+
+/* Footer */
+.footer {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  height: 60px;
+  width: 100%;
+  background: var(--first-color);
+  border-left: 1px solid var(--main-color);
+  border-right: 1px solid var(--main-color);
+}
+
+.footer-aside {
+  border-right: 1px solid var(--main-color);
+  padding: 15px 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-btn {
+  width: 30px;
+  height: 30px;
+  border: 0;
+  outline: none;
+  cursor: pointer;
+}
+
+.footer-aside__add-btn {
+  background: url(../assets/icons/add.svg) center no-repeat;
+}
+
+.footer-aside__profile-btn {
+  background: url(../assets/icons/profile.svg) center no-repeat;
+}
+
+.footer-aside__exit-btn {
+  background: url(../assets/icons/exit.svg) center no-repeat;
+}
+
+.footer-main {
+  padding: 15px 30px;
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.footer-main__attach-btn {
+  background: url(../assets/icons/attach.svg) center no-repeat;
+}
+
+.footer-main__send-btn {
+  background: url(../assets/icons/send.svg) center no-repeat;
+}
+
+.footer-main__message-form {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  width: 100%;
+}

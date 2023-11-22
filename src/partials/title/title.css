@@ -1,0 +1,12 @@
+.title {
+  color: var(--text-primary);
+  text-align: center;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px;
+}
+
+.title_error {
+  color: var(--error-color);
+}
