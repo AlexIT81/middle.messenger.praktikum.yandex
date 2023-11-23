@@ -6,6 +6,7 @@
 }
 
 .my-message__content-wrapper {
+  width: 80%;
   margin-left: auto;
   background: var(--main-color);
   border-radius: 15px 15px 0px 15px;

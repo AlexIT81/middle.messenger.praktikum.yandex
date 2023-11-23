@@ -37,6 +37,8 @@ export default defineConfig({
         profile_edit_avatar: resolve(root, 'profile_edit_avatar', 'index.html'),
         chat_empty: resolve(root, 'chat_empty', 'index.html'),
         chat_not_empty: resolve(root, 'chat_not_empty', 'index.html'),
+        add_user: resolve(root, 'add_user', 'index.html'),
+        remove_user: resolve(root, 'remove_user', 'index.html'),
       },
     },
   },

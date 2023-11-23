@@ -1,4 +1,4 @@
-{{#> page/page title="Не пустой чат" script="./chat_not_empty.js"}}
+{{#> page/page title="Добавить пользователя" script="./add_user.js"}}
   <header class="header">
     <div class="header-aside">
       <h1 class="header-aside__title">Simple web messenger</h1>
@@ -55,4 +55,5 @@
       </form>
     </div>
   </footer>
+  {{> popup/popup-user title="Добавить пользователя" apiError="Ошибки API" label="Добавить"}}
 {{/page/page}}

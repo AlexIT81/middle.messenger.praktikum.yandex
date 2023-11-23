@@ -16,7 +16,7 @@
 }
 
 .temp-menu__link {
-  color: var(--main-color);
+  color: var(--text-primary);
   font-size: 12px;
   font-weight: 400;
   text-decoration: none;

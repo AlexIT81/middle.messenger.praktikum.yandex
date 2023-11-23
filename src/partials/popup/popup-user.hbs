@@ -1,0 +1,10 @@
+<div class="popup popup_opened">
+  <div class="popup__wrapper">
+    {{> title/title text=title}}
+    <form name="add-user" class="user-form">
+      {{> input/input label="Логин" placeholder="login" name="login" type="text"}}
+      <p class="user-form_error">{{apiError}}</p>
+      {{> button/button type="submit"}}
+    </form>
+  </div>
+</div>
