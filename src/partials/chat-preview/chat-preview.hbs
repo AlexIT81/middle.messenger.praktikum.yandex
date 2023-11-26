@@ -1,0 +1,11 @@
+<div class="chat-preview">
+  {{> avatar/avatar-chat}}
+  <div class="chat-preview__msg-wrapper">
+    <h3 class="chat-preview__username">{{username}}</h3>
+    <p class="chat-preview__msg">{{lastmsg}}</p>
+  </div>
+  <div class="chat-preview__data">
+    <span class="chat-preview__time">{{time}}</span>
+    {{#if unread}}<span class="chat-preview__unread-msg">{{unread}}</span>{{/if}}
+  </div>
+</div>

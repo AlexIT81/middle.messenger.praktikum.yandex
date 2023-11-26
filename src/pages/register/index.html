@@ -1,0 +1,25 @@
+{{#> page/page title="Войти" script="./register.js"}}
+<main class="register">
+  <div class="register__wrapper">
+    <h1 class="register__title">Регистрация</h1>
+    <form class="register__form" name="login">
+      <div class="register__inputs-wrapper">
+        {{> input/input label="Почта" placeholder="email" name="email" type="email" error="ошибка инпута"}}
+        {{> input/input label="Логин" placeholder="login" name="login" type="text"}}
+        {{> input/input
+        label="Имя" placeholder="first_name" name="first_name" type="text"}}
+        {{> input/input label="Фамилия" placeholder="second_name" name="second_name" type="text"}}
+        {{> input/input label="Телефон" placeholder="phone" name="phone" type="tel"}}
+        {{> input/input label="Пароль" placeholder="password" name="password" type="password"}}
+        {{> input/input
+        label="Пароль (ёще раз)" placeholder="password" name="password" type="password"}}
+      </div>
+      <div class="register__buttons-wrapper">
+        <p class="register__error-message">Ошибки API</p>
+        {{> button/button label="Зарегистрироваться" type="submit" disabled=true}}
+        <a class="register__link text-link" href="../login/">Войти?</a>
+      </div>
+    </form>
+  </div>
+</main>
+{{/page/page}}

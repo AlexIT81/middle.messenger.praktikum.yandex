@@ -1,0 +1,24 @@
+.temp-menu {
+  position: fixed;
+  right: 0;
+  bottom: 50%;
+  z-index: 100;
+}
+
+.temp-menu__list {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 5px;
+}
+
+.temp-menu__list-item {
+
+}
+
+.temp-menu__link {
+  color: var(--text-primary);
+  font-size: 12px;
+  font-weight: 400;
+  text-decoration: none;
+  line-height: 12px;
+}
