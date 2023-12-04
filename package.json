@@ -8,23 +8,33 @@
     "node": ">=18.15.0"
   },
   "scripts": {
+    "eslint": "eslint .",
     "start": "node server.cjs",
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "stylelint": "stylelint --ignore-path .gitignore '**/*{.css,.scss}'",
+    "stylelint:fix": "stylelint --ignore-path .gitignore '**/*{.css,.scss} --fix"
   },
   "browserslist": [
     "cover 99.5%"
   ],
   "devDependencies": {
     "@types/node": "^20.9.1",
-    "express": "^4.18.2",
-    "vite": "^5.0.0",
-    "vite-plugin-inspect": "^0.7.42"
+    "@typescript-eslint/eslint-plugin": "^6.12.0",
+    "@typescript-eslint/parser": "^6.12.0",
+    "eslint": "^8.54.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "stylelint": "^15.11.0"
   },
   "dependencies": {
     "autoprefixer": "^10.4.16",
     "cssnano": "^6.0.1",
-    "vite-plugin-handlebars": "^1.6.0"
+    "express": "^4.18.2",
+    "stylelint-config-standard": "^34.0.0",
+    "stylelint-order": "^6.0.3",
+    "vite": "^5.0.0",
+    "vite-plugin-handlebars": "^1.6.0",
+    "vite-plugin-inspect": "^0.7.42"
   }
 }

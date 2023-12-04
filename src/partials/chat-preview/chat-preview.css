@@ -1,7 +1,7 @@
 .chat-preview {
   background: var(--main-color-light);
   border-radius: 8px;
-  padding: 8px 8px;
+  padding: 8px;
   display: flex;
   justify-content: space-between;
 }
@@ -37,6 +37,7 @@
   align-items: center;
   gap: 5px;
 }
+
 .chat-preview__time {
   color: var(--text-secondary);
   text-align: right;

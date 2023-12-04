@@ -25,8 +25,9 @@
 }
 
 .menu-burger__link_add {
-  background: url(../../assets/icons/add_burger.svg) no-repeat left center;
+  background: url("../../assets/icons/add_burger.svg") no-repeat left center;
 }
+
 .menu-burger__link_delete {
-  background: url(../../assets/icons/delete.svg) no-repeat left center;
+  background: url("../../assets/icons/delete.svg") no-repeat left center;
 }

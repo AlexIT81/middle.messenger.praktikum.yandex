@@ -1,6 +1,6 @@
 .menu-attach {
   position: absolute;
-  border-radius: 15px 15px 15px 0px;
+  border-radius: 15px 15px 15px 0;
   background: var(--main-color-light);
   left: 30px;
   bottom: 0;
@@ -26,11 +26,13 @@
 }
 
 .menu-attach__link_foto {
-  background: url(../../assets/icons/foto.svg) no-repeat left center;
+  background: url("../../assets/icons/foto.svg") no-repeat left center;
 }
+
 .menu-attach__link_file {
-  background: url(../../assets/icons/file.svg) no-repeat left center;
+  background: url("../../assets/icons/file.svg") no-repeat left center;
 }
+
 .menu-attach__link_location {
-  background: url(../../assets/icons/location.svg) no-repeat left center;
+  background: url("../../assets/icons/location.svg") no-repeat left center;
 }

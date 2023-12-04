@@ -11,14 +11,10 @@
   gap: 5px;
 }
 
-.temp-menu__list-item {
-
-}
-
 .temp-menu__link {
   color: var(--text-primary);
-  font-size: 12px;
   font-weight: 400;
-  text-decoration: none;
+  font-size: 12px;
   line-height: 12px;
+  text-decoration: none;
 }

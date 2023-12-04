@@ -5,6 +5,4 @@ const PORT = 3000;
 
 app.use(express.static('dist'));
 
-app.listen(PORT, function () {
-  console.log(`Приложение запущено на порту ${PORT}!`);
-});
+app.listen(PORT, () => console.log(`Приложение запущено на порту ${PORT}!`));
