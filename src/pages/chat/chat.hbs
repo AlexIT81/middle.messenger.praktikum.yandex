@@ -1,0 +1,86 @@
+<div class='app-wrapper'>
+  <header class='header'>
+    <div class='header-aside'>
+      <h1 class='header-aside__title'>Simple web messenger</h1>
+      <form action='' class='search' name='search'>
+        {{{inputSearch}}}
+        <button type='submit' class='search__button btn-link'></button>
+      </form>
+    </div>
+    <div class='header-main'>
+      <div class='header-main__avatar-wrapper'>
+        {{{avatarMy}}}
+        <span class='header-main__avatar-separator'></span>
+        {{{avatarUser1}}}
+        {{{avatarUser2}}}
+      </div>
+      <button class='header-main__menu-button btn-link' type='button'></button>
+    </div>
+  </header>
+  <main class='main'>
+    <section class='chats'>
+      {{#each chatPreviewList}}
+        {{{this}}}
+      {{/each}}
+    </section>
+    <section class='chat'>
+      {{#each messages}}
+        {{{this}}}
+      {{/each}}
+      <nav class='menu-burger'>
+        <ul class='menu-burger__list'>
+          <li><button class='menu-burger__link menu-burger__link_add text-link'>Добавить пользователя</button></li>
+          <li><button class='menu-burger__link menu-burger__link_delete text-link'>Удалить пользователя</button></li>
+        </ul>
+      </nav>
+      {{!-- <nav class='menu-burger'>
+        <ul class='menu-burger__list'>
+          <li><a
+              class='menu-burger__link menu-burger__link_add text-link'
+              href='../add_user/'
+            >Добавить пользователя</a></li>
+          <li><a
+              class='menu-burger__link menu-burger__link_delete text-link'
+              href='../remove_user/'
+            >Удалить пользователя</a></li>
+        </ul>
+      </nav> --}}
+      <nav class='menu-attach'>
+        <ul class='menu-attach__list'>
+          <li><button class='menu-attach__link menu-attach__link_foto text-link'>Фото и видео</button></li>
+          <li><button class='menu-attach__link menu-attach__link_file text-link'>Файл</button></li>
+          <li><button class='menu-attach__link menu-attach__link_location text-link'>Локация</button></li>
+        </ul>
+      </nav>
+    </section>
+  </main>
+  <footer class='footer'>
+    <div class='footer-aside'>
+      <button
+        type='button'
+        class='footer-aside__add-btn footer-btn btn-link'
+      ></button>
+      <button
+        type='button'
+        class='footer-aside__profile-btn footer-btn btn-link'
+      ></button>
+      <button
+        type='button'
+        class='footer-aside__exit-btn footer-btn btn-link'
+      ></button>
+    </div>
+    <div class='footer-main'>
+      <button
+        type='button'
+        class='footer-main__attach-btn footer-btn btn-link'
+      ></button>
+      <form name='message' class='footer-main__message-form'>
+        {{{inputMessage}}}
+        <button
+          type='submit'
+          class='footer-main__send-btn footer-btn btn-link'
+        ></button>
+      </form>
+    </div>
+  </footer>
+</div>

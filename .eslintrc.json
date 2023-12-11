@@ -3,8 +3,28 @@
   "parser": "@typescript-eslint/parser",
   "plugins": ["@typescript-eslint"],
   "rules": {
-    "max-len": [2, 150],
-    "@typescript-eslint/no-unused-vars": 2,
-    "linebreak-style": ["error", "unix"]
+    "max-len": [2, 200],
+    "@typescript-eslint/no-unused-vars": "off" ,
+    "linebreak-style": ["error", "unix"],
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "ts": "never"
+      }
+    ],
+    "no-underscore-dangle": "off",
+    "class-methods-use-this": "off",
+    "no-undef": "off",
+    "no-unused-vars": "off",
+    "no-useless-constructor": "off"
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
   }
 }

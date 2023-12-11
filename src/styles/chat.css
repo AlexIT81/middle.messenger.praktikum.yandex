@@ -1,3 +1,7 @@
+.app-wrapper {
+  height: 100%;
+}
+
 .header {
   display: grid;
   grid-template-columns: 380px 1fr;
@@ -116,7 +120,7 @@
   display: flex;
   justify-content: space-between;
   border-right: 1px solid var(--main-color);
-  padding: 15px;
+  padding: 14px;
 }
 
 .footer-btn {
@@ -159,4 +163,92 @@
   align-items: center;
   gap: 30px;
   width: 100%;
+}
+
+.menu-attach {
+  position: absolute;
+  border-radius: 15px 15px 15px 0;
+  background: var(--main-color-light);
+  left: 30px;
+  bottom: 0;
+  padding: 10px 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: .3s linear;
+}
+
+.menu-attach__list {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 10px;
+}
+
+.menu-attach__link {
+  color: var(--text-secondary);
+  font-size: 13px;
+  line-height: 25px;
+  font-weight: 400;
+  display: block;
+  padding-left: 40px;
+  height: 25px;
+  background-size: 25px 25px;
+  cursor: pointer;
+  border: 0;
+}
+
+.menu-attach__link_foto {
+  background: url("../assets/icons/foto.svg") no-repeat left center;
+}
+
+.menu-attach__link_file {
+  background: url("../assets/icons/file.svg") no-repeat left center;
+}
+
+.menu-attach__link_location {
+  background: url("../assets/icons/location.svg") no-repeat left center;
+}
+
+.menu-burger {
+  position: absolute;
+  border-radius: 15px 0 15px 15px;
+  background: var(--main-color-light);
+  right: 30px;
+  top: 0;
+  padding: 10px 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: .3s linear;
+}
+
+.menu-burger__list {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 10px;
+}
+
+.menu-burger__link {
+  color: var(--text-secondary);
+  font-size: 13px;
+  line-height: 25px;
+  font-weight: 400;
+  display: block;
+  padding-left: 40px;
+  height: 25px;
+  background-size: 25px 25px;
+  border: 0;
+  cursor: pointer;
+}
+
+.menu-burger__link_add {
+  background: url("../assets/icons/add_burger.svg") no-repeat left center;
+}
+
+.menu-burger__link_delete {
+  background: url("../assets/icons/delete.svg") no-repeat left center;
+}
+
+.menu-visible {
+  opacity: 1;
+  visibility: visible;
+  z-index: 10;
 }

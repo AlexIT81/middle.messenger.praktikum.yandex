@@ -1,7 +1,9 @@
 :root {
   --main-color: #2F80ED; /* rgba(47, 128, 237, 1) */
   --main-color-medium: rgb(47 128 237 / 50%); /* rgba(47, 128, 237, 1) */
-  --main-color-light: rgb(47 128 237 / 10%); /* Фон светлоголубой от синего */
+
+  /* --main-color-light: rgb(47 128 237 / 10%); */
+  --main-color-light: #eaf2fd; /* Фон светлоголубой от синего */
   --first-color: #fff;
   --secondary-color: #F7F7F7; /* серый */
   --text-primary: #1B1A57;

@@ -1,7 +1,7 @@
 @import url('../vendor/reset.css');
 @import url('../vendor/fonts/fonts.css');
 @import url('../vendor/color-variables.css');
-@import url('../partials/temp-menu/temp-menu.css');
+@import url('./temp-menu.css');
 
 /* Потом удалить */
 .temp-link {

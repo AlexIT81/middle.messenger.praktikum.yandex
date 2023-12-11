@@ -1,0 +1,39 @@
+<main class='profile'>
+  <div class='profile__back'>
+    <button class='profile_back-button btn-link' type='button'></button>
+  </div>
+  <div class='profile__data'>
+    <div class='profile__data-wrapper'>
+      {{{avatarProfile}}}
+      {{{title}}}
+      <form class='profile__form' name='profile'>
+        <div class='profile__form-inputs-wrapper'>
+          {{{inputEmail}}}
+          {{{inputLogin}}}
+          {{{inputName}}}
+          {{{inputSecongName}}}
+          {{{inputChatName}}}
+          {{{inputPhone}}}
+        </div>
+        <div class='profile__form-links-wrapper'>
+            {{{buttonEditData}}}
+            {{{buttonEditPassword}}}
+            {{{buttonExit}}}
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="popup">
+    <div class="popup__wrapper">
+      {{{titlePopup}}}
+      <form name="upload" class="upload" enctype="multipart/form-data">
+        <div class="upload__inputs-wrapper">
+          <label class="upload__label" for="input__file">Выбрать файл на компьютере</label>
+          <input class="upload__input" name="userfile" type="file" id="input__file">
+        </div>
+        <p class="upload__error">{{{inputPopupError}}}</p>
+        {{{buttonPopupSubmit}}}
+      </form>
+    </div>
+  </div>
+</main>

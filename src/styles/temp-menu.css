@@ -1,0 +1,26 @@
+.temp-menu {
+  position: fixed;
+  right: 0;
+  bottom: 50%;
+  z-index: 100;
+}
+
+.temp-menu__list {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 5px;
+}
+
+.temp-menu__button {
+  max-width: 280px;
+  border: none;
+  border-radius: 8px;
+  padding: 0 5px;
+  outline: none;
+  color: var(--main-color);
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 13px;
+  background-color: transparent;
+  cursor: pointer;
+}

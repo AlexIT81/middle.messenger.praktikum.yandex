@@ -3,8 +3,13 @@
     "outDir": "dist",
     "target": "es2016",
     "declaration": false,
-    "module": "commonjs",
+    "module": "ES6",
     "strictNullChecks": true,
-    "sourceMap": true
+    "sourceMap": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "allowJs": true,
+    "moduleResolution": "Node",
+    "typeRoots": ["./src/typings", "./node_modules/@types"]
   }
 }
