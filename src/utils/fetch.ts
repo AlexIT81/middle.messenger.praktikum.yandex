@@ -5,7 +5,7 @@ enum METHODS {
   DELETE = 'DELETE',
 }
 
-function queryStringify(data: object) {
+function queryStringify(data: object): string {
   let requestUrl: string = '';
   let i = 0;
   // eslint-disable-next-line
@@ -28,17 +28,18 @@ type Options = {
   headers?: string
 }
 
+type HTTPMethod = (url: string, options?: Options) => Promise<unknown>
 export default class HTTPTransport {
-  get = (url: string, options: Options = {}) => {
+  get: HTTPMethod = (url, options = {}) => {
     const fullUrl = url + queryStringify(options.data);
     return this.request(fullUrl, { ...options, method: METHODS.GET }, options.timeout);
   };
 
-  put = (url: string, options: Options = {}) => this.request(url, { ...options, method: METHODS.PUT }, options.timeout);
+  put: HTTPMethod = (url, options = {}) => this.request(url, { ...options, method: METHODS.PUT }, options.timeout);
 
-  post = (url: string, options: Options = {}) => this.request(url, { ...options, method: METHODS.POST }, options.timeout);
+  post: HTTPMethod = (url, options = {}) => this.request(url, { ...options, method: METHODS.POST }, options.timeout);
 
-  delete = (url: string, options: Options = {}) => this.request(url, { ...options, method: METHODS.DELETE }, options.timeout);
+  delete: HTTPMethod = (url, options) => this.request(url, { ...options, method: METHODS.DELETE }, options.timeout);
 
   request = (url: string, options: Options, timeout = 5000) => {
     const { headers, data, method } = options;
