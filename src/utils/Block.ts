@@ -21,12 +21,6 @@ class Block {
 
   private _meta: { props: any; };
 
-  /** JSDoc
-   * @param {string} tagName
-   * @param {Object} props
-   *
-   * @returns {void}
-   */
   constructor(propsWithChildren: any = {}) {
     const eventBus = new EventBus();
 
@@ -46,7 +40,7 @@ class Block {
     eventBus.emit(Block.EVENTS.INIT);
   }
 
-  _getChildrenAndProps(childrenAndProps: any) {
+  private _getChildrenAndProps(childrenAndProps: any) {
     const props: Record<string, any> = {};
     const children: Record<string, Block | Block[]> = {};
 
@@ -61,7 +55,7 @@ class Block {
     return { props, children };
   }
 
-  _addEvents() {
+  private _addEvents() {
     const { events = {} } = this.props as { events: Record<string, () => void> };
 
     Object.keys(events).forEach((eventName) => {
@@ -69,7 +63,7 @@ class Block {
     });
   }
 
-  _registerEvents(eventBus: EventBus) {
+  private _registerEvents(eventBus: EventBus) {
     eventBus.on(Block.EVENTS.INIT, this._init.bind(this));
     eventBus.on(Block.EVENTS.FLOW_CDM, this._componentDidMount.bind(this));
     eventBus.on(Block.EVENTS.FLOW_CDU, this._componentDidUpdate.bind(this));
@@ -84,7 +78,7 @@ class Block {
 
   protected init() { }
 
-  _componentDidMount() {
+  private _componentDidMount() {
     this.componentDidMount();
   }
 
@@ -112,7 +106,7 @@ class Block {
     return true;
   }
 
-  setProps = (nextProps: any) => {
+  public setProps = (nextProps: any) => {
     if (!nextProps) {
       return;
     }
@@ -120,7 +114,7 @@ class Block {
     Object.assign(this.props, nextProps);
   };
 
-  get element() {
+  get element(): HTMLElement | null {
     return this._element;
   }
 
@@ -191,7 +185,7 @@ class Block {
     return this.element;
   }
 
-  _makePropsProxy(props: any) {
+  private _makePropsProxy(props: any) {
     // Ещё один способ передачи this, но он больше не применяется с приходом ES6+
     const self = this;
 
@@ -214,16 +208,16 @@ class Block {
     });
   }
 
-  _createDocumentElement(tagName: string) {
+  private _createDocumentElement(tagName: string) {
     // Можно сделать метод, который через фрагменты в цикле создаёт сразу несколько блоков
     return document.createElement(tagName);
   }
 
-  show() {
+  public show() {
     this.getContent()!.style.display = 'block';
   }
 
-  hide() {
+  public hide() {
     this.getContent()!.style.display = 'none';
   }
 }

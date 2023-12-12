@@ -8,7 +8,7 @@
     "node": ">=18.15.0"
   },
   "scripts": {
-    "eslint": "eslint .",
+    "eslint": "eslint . --ext .ts --ignore-path .gitignore",
     "start": "node server.cjs",
     "dev": "vite",
     "build": "vite build",

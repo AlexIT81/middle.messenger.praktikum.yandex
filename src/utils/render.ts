@@ -60,7 +60,6 @@ export default function render(name: keyof typeof ROUTES) {
         const currentForm = buttonMessageSubmit.closest('form') as HTMLFormElement;
         const isFormValid = setFormValid(currentForm);
         if (isFormValid) {
-          console.log('submit');
           currentForm.reset();
         }
       });

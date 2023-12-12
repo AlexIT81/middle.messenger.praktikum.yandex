@@ -59,5 +59,5 @@ window.addEventListener('DOMContentLoaded', () => {
     render('chat');
   });
 
-  render('profile');
+  render('chat');
 });
