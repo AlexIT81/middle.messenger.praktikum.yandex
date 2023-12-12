@@ -63,6 +63,13 @@ class Block {
     });
   }
 
+  private _removeEvents() {
+    const { events = {} } = this.props;
+    Object.keys(events).forEach((eventName) => {
+      this._element.removeEventListener(eventName, events[eventName]);
+    });
+  }
+
   private _registerEvents(eventBus: EventBus) {
     eventBus.on(Block.EVENTS.INIT, this._init.bind(this));
     eventBus.on(Block.EVENTS.FLOW_CDM, this._componentDidMount.bind(this));
