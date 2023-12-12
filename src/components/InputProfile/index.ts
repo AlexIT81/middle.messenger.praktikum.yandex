@@ -10,9 +10,11 @@ interface InputProfileProps {
   error?: string,
   value?: string,
   disabled?: boolean,
-  onBlur?: () => void;
+  onBlur?: (e: Event) => void,
+  onFocus?: (e: Event) => void,
   events?: {
-    blur: () => void;
+    focusin: () => void,
+    focusout: () => void,
   }
 }
 
@@ -20,7 +22,7 @@ export default class InputProfile extends Block {
   constructor(props: InputProfileProps) {
     super({
       ...props,
-      events: { blur: props.onBlur },
+      events: { focusin: props.onFocus, focusout: props.onBlur },
     });
   }
 

@@ -6,9 +6,11 @@ interface InputTextProps {
   placeholder: string,
   name: string,
   error?: string,
-  onBlur?: () => void;
+  onBlur?: (e: Event) => void,
+  onFocus?: (e: Event) => void,
   events?: {
-    blur: () => void;
+    focusin: () => void,
+    focusout: () => void,
   }
 }
 
@@ -16,7 +18,7 @@ export default class InputText extends Block {
   constructor(props: InputTextProps) {
     super({
       ...props,
-      events: { blur: props.onBlur },
+      events: { focusin: props.onFocus, focusout: props.onBlur },
     });
   }
 

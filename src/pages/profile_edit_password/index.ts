@@ -7,6 +7,8 @@ import InputProfile from '../../components/InputProfile';
 import ButtonNav from '../../components/ButtonNav';
 import Button from '../../components/Button';
 import render from '../../utils/render';
+import { setBlurValid, setFocusValid, setFormValid } from '../../utils/validation';
+import getFormData from '../../utils/getFormData';
 
 export default class ProfileEditPassword extends Block {
   init() {
@@ -24,8 +26,16 @@ export default class ProfileEditPassword extends Block {
       placeholder: 'oldPassword',
       name: 'oldPassword',
       type: 'password',
-      value: '12345678',
+      value: 'Z12345678',
       disabled: false,
+      onBlur: (e) => {
+        const input = e.target as HTMLInputElement;
+        setBlurValid(input);
+      },
+      onFocus: (e) => {
+        const input = e.target as HTMLInputElement;
+        setFocusValid(input);
+      },
     });
 
     this.children.inputNewPassword = new InputProfile({
@@ -33,8 +43,16 @@ export default class ProfileEditPassword extends Block {
       placeholder: 'newPassword',
       name: 'newPassword',
       type: 'password',
-      value: '12345678',
+      value: 'Z12345678',
       disabled: false,
+      onBlur: (e) => {
+        const input = e.target as HTMLInputElement;
+        setBlurValid(input);
+      },
+      onFocus: (e) => {
+        const input = e.target as HTMLInputElement;
+        setFocusValid(input);
+      },
     });
 
     this.children.inputNewPasswordRepeat = new InputProfile({
@@ -42,8 +60,16 @@ export default class ProfileEditPassword extends Block {
       placeholder: 'newPassword',
       name: 'newPasswordRepeat',
       type: 'password',
-      value: '12345678',
+      value: 'Z12345678',
       disabled: false,
+      onBlur: (e) => {
+        const input = e.target as HTMLInputElement;
+        setBlurValid(input);
+      },
+      onFocus: (e) => {
+        const input = e.target as HTMLInputElement;
+        setFocusValid(input);
+      },
     });
 
     this.children.buttonSubmit = new Button({
@@ -51,7 +77,14 @@ export default class ProfileEditPassword extends Block {
       type: 'submit',
       onClick: (e) => {
         e.preventDefault();
-        console.log('submit');
+        const btn = e.target as HTMLElement;
+        const currentForm = btn.closest('form') as HTMLFormElement;
+        const isFormValid = setFormValid(currentForm);
+        if (isFormValid) {
+          getFormData(currentForm);
+          currentForm.reset();
+          render('profile');
+        }
       },
     });
 

@@ -5,6 +5,8 @@ import Input from '../../components/Input';
 import Button from '../../components/Button';
 import ButtonNav from '../../components/ButtonNav';
 import render from '../../utils/render';
+import { setBlurValid, setFocusValid, setFormValid } from '../../utils/validation';
+import getFormData from '../../utils/getFormData';
 
 export default class Register extends Block {
   init() {
@@ -13,6 +15,14 @@ export default class Register extends Block {
       placeholder: 'email',
       name: 'email',
       type: 'email',
+      onBlur: (e) => {
+        const input = e.target as HTMLInputElement;
+        setBlurValid(input);
+      },
+      onFocus: (e) => {
+        const input = e.target as HTMLInputElement;
+        setFocusValid(input);
+      },
     });
 
     this.children.inputLogin = new Input({
@@ -20,6 +30,14 @@ export default class Register extends Block {
       placeholder: 'login',
       name: 'login',
       type: 'text',
+      onBlur: (e) => {
+        const input = e.target as HTMLInputElement;
+        setBlurValid(input);
+      },
+      onFocus: (e) => {
+        const input = e.target as HTMLInputElement;
+        setFocusValid(input);
+      },
     });
 
     this.children.inputFirstName = new Input({
@@ -27,6 +45,14 @@ export default class Register extends Block {
       placeholder: 'first_name',
       name: 'first_name',
       type: 'text',
+      onBlur: (e) => {
+        const input = e.target as HTMLInputElement;
+        setBlurValid(input);
+      },
+      onFocus: (e) => {
+        const input = e.target as HTMLInputElement;
+        setFocusValid(input);
+      },
     });
 
     this.children.inputSecondName = new Input({
@@ -34,6 +60,14 @@ export default class Register extends Block {
       placeholder: 'second_name',
       name: 'second_name',
       type: 'text',
+      onBlur: (e) => {
+        const input = e.target as HTMLInputElement;
+        setBlurValid(input);
+      },
+      onFocus: (e) => {
+        const input = e.target as HTMLInputElement;
+        setFocusValid(input);
+      },
     });
 
     this.children.inputPhone = new Input({
@@ -41,6 +75,14 @@ export default class Register extends Block {
       placeholder: 'phone',
       name: 'phone',
       type: 'tel',
+      onBlur: (e) => {
+        const input = e.target as HTMLInputElement;
+        setBlurValid(input);
+      },
+      onFocus: (e) => {
+        const input = e.target as HTMLInputElement;
+        setFocusValid(input);
+      },
     });
 
     this.children.inputPassword = new Input({
@@ -48,6 +90,14 @@ export default class Register extends Block {
       placeholder: 'password',
       name: 'password',
       type: 'password',
+      onBlur: (e) => {
+        const input = e.target as HTMLInputElement;
+        setBlurValid(input);
+      },
+      onFocus: (e) => {
+        const input = e.target as HTMLInputElement;
+        setFocusValid(input);
+      },
     });
 
     this.children.inputPasswordRepeat = new Input({
@@ -55,14 +105,29 @@ export default class Register extends Block {
       placeholder: 'password',
       name: 'password_repeat',
       type: 'password',
+      onBlur: (e) => {
+        const input = e.target as HTMLInputElement;
+        setBlurValid(input);
+      },
+      onFocus: (e) => {
+        const input = e.target as HTMLInputElement;
+        setFocusValid(input);
+      },
     });
 
     this.children.button = new Button({
       label: 'Зарегистрироваться',
       type: 'submit',
       disabled: false,
-      onClick: () => {
-        console.log('submit');
+      onClick: (e) => {
+        e.preventDefault();
+        const btn = e.target as HTMLElement;
+        const currentForm = btn.closest('form') as HTMLFormElement;
+        const isFormValid = setFormValid(currentForm);
+        if (isFormValid) {
+          getFormData(currentForm);
+          currentForm.reset();
+        }
       },
     });
 

@@ -18,7 +18,8 @@
     "class-methods-use-this": "off",
     "no-undef": "off",
     "no-unused-vars": "off",
-    "no-useless-constructor": "off"
+    "no-useless-constructor": "off",
+    "no-else-return": "off"
   },
   "settings": {
     "import/resolver": {

@@ -7,6 +7,8 @@ import InputProfile from '../../components/InputProfile';
 import ButtonNav from '../../components/ButtonNav';
 import Button from '../../components/Button';
 import render from '../../utils/render';
+import { setBlurValid, setFocusValid, setFormValid } from '../../utils/validation';
+import getFormData from '../../utils/getFormData';
 
 export default class ProfileEdit extends Block {
   init() {
@@ -26,6 +28,14 @@ export default class ProfileEdit extends Block {
       type: 'email',
       value: 'example@ya.ru',
       disabled: false,
+      onBlur: (e) => {
+        const input = e.target as HTMLInputElement;
+        setBlurValid(input);
+      },
+      onFocus: (e) => {
+        const input = e.target as HTMLInputElement;
+        setFocusValid(input);
+      },
     });
 
     this.children.inputLogin = new InputProfile({
@@ -35,6 +45,14 @@ export default class ProfileEdit extends Block {
       type: 'text',
       value: 'IvanIvanov',
       disabled: false,
+      onBlur: (e) => {
+        const input = e.target as HTMLInputElement;
+        setBlurValid(input);
+      },
+      onFocus: (e) => {
+        const input = e.target as HTMLInputElement;
+        setFocusValid(input);
+      },
     });
 
     this.children.inputName = new InputProfile({
@@ -44,6 +62,14 @@ export default class ProfileEdit extends Block {
       type: 'text',
       value: 'Иван',
       disabled: false,
+      onBlur: (e) => {
+        const input = e.target as HTMLInputElement;
+        setBlurValid(input);
+      },
+      onFocus: (e) => {
+        const input = e.target as HTMLInputElement;
+        setFocusValid(input);
+      },
     });
 
     this.children.inputSecongName = new InputProfile({
@@ -53,6 +79,14 @@ export default class ProfileEdit extends Block {
       type: 'text',
       value: 'Иванов',
       disabled: false,
+      onBlur: (e) => {
+        const input = e.target as HTMLInputElement;
+        setBlurValid(input);
+      },
+      onFocus: (e) => {
+        const input = e.target as HTMLInputElement;
+        setFocusValid(input);
+      },
     });
 
     this.children.inputChatName = new InputProfile({
@@ -62,6 +96,14 @@ export default class ProfileEdit extends Block {
       type: 'text',
       value: 'Ivan Ivanov',
       disabled: false,
+      onBlur: (e) => {
+        const input = e.target as HTMLInputElement;
+        setBlurValid(input);
+      },
+      onFocus: (e) => {
+        const input = e.target as HTMLInputElement;
+        setFocusValid(input);
+      },
     });
 
     this.children.inputPhone = new InputProfile({
@@ -69,8 +111,16 @@ export default class ProfileEdit extends Block {
       placeholder: 'phone',
       name: 'phone',
       type: 'tel',
-      value: '+7(123)456-78-90',
+      value: '+71234567890',
       disabled: false,
+      onBlur: (e) => {
+        const input = e.target as HTMLInputElement;
+        setBlurValid(input);
+      },
+      onFocus: (e) => {
+        const input = e.target as HTMLInputElement;
+        setFocusValid(input);
+      },
     });
 
     this.children.buttonSubmit = new Button({
@@ -78,7 +128,14 @@ export default class ProfileEdit extends Block {
       type: 'submit',
       onClick: (e) => {
         e.preventDefault();
-        console.log('submit');
+        const btn = e.target as HTMLElement;
+        const currentForm = btn.closest('form') as HTMLFormElement;
+        const isFormValid = setFormValid(currentForm);
+        if (isFormValid) {
+          getFormData(currentForm);
+          currentForm.reset();
+          render('profile');
+        }
       },
     });
 

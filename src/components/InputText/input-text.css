@@ -23,4 +23,5 @@
 
 .input-text__inner_error {
   color: var(--error-color);
+  border-bottom: 1px solid var(--error-color);
 }

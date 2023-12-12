@@ -31,7 +31,7 @@ export default class Profile extends Block {
     });
 
     this.children.title = new Title({
-      text: 'Ivan Ivanov',
+      text: 'Иван Иванов',
     });
 
     this.children.inputEmail = new InputProfile({
@@ -48,7 +48,7 @@ export default class Profile extends Block {
       placeholder: 'login',
       name: 'login',
       type: 'text',
-      value: 'IvanIvanov',
+      value: 'Ivan Ivanov',
       disabled: true,
     });
 

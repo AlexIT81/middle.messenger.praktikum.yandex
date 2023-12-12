@@ -14,11 +14,6 @@ window.addEventListener('DOMContentLoaded', () => {
     <li class="temp-menu__list-item"><button class="temp-menu__button btn-link" type="button" id="profile-edit">Профайл редактирование профиля</button></li>
     <li class="temp-menu__list-item"><button class="temp-menu__button btn-link" type="button" id="profile-edit-password">Профайл сменить пароль</button></li>
     <li class="temp-menu__list-item"><button class="temp-menu__button btn-link" type="button" id="chat">Чат</button></button></li>
-    <li class="temp-menu__list-item"><a class="temp-menu__link text-link" href="../profile_edit_avatar/">Загрузка аватара</a></li>
-    <li class="temp-menu__list-item"><a class="temp-menu__link text-link" href="../chat_empty/">Пустой чат</a></li>
-    <li class="temp-menu__list-item"><a class="temp-menu__link text-link" href="../chat_not_empty/">Не пустой чат</a></li>
-    <li class="temp-menu__list-item"><a class="temp-menu__link text-link" href="../add_user/">Добавить пользователя</a></li>
-    <li class="temp-menu__list-item"><a class="temp-menu__link text-link" href="../remove_user/">Удалить пользователя</a></li>
   </ul>
   `;
   const root = document.querySelector('#nav');
@@ -64,5 +59,5 @@ window.addEventListener('DOMContentLoaded', () => {
     render('chat');
   });
 
-  render('login');
+  render('profile');
 });

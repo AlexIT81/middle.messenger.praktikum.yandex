@@ -8,12 +8,25 @@ import ChatPreview from '../../components/ChatPreview';
 import { chatPreviewData, messageData } from '../../data/chatData';
 import MyMessage from '../../components/MyMessage';
 import Message from '../../components/Message';
+import { setBlurValid, setFocusValid, setFormValid } from '../../utils/validation';
+import Title from '../../components/Title';
+import Button from '../../components/Button';
+import Input from '../../components/Input';
+import getFormData from '../../utils/getFormData';
 
 export default class Chat extends Block {
   init() {
     this.children.inputMessage = new InputText({
       placeholder: 'Введите&nbsp;сообщение...',
       name: 'message',
+      onBlur: (e) => {
+        const input = e.target as HTMLInputElement;
+        setBlurValid(input);
+      },
+      onFocus: (e) => {
+        const input = e.target as HTMLInputElement;
+        setFocusValid(input);
+      },
     });
 
     this.children.inputSearch = new InputText({
@@ -69,6 +82,77 @@ export default class Chat extends Block {
       });
 
       return message;
+    });
+
+    // Бургер меню
+    this.children.popupAddUserTitle = new Title({
+      text: 'Добавить пользователя',
+    });
+
+    this.children.popupRemoveUserTitle = new Title({
+      text: 'Удалить пользователя',
+    });
+
+    this.children.popupAddUserInput = new Input({
+      label: 'Логин',
+      placeholder: 'login',
+      name: 'login',
+      type: 'text',
+      onBlur: (e) => {
+        const input = e.target as HTMLInputElement;
+        setBlurValid(input);
+      },
+      onFocus: (e) => {
+        const input = e.target as HTMLInputElement;
+        setFocusValid(input);
+      },
+    });
+
+    this.children.popupRemoveUserInput = new Input({
+      label: 'Логин',
+      placeholder: 'login',
+      name: 'login',
+      type: 'text',
+      onBlur: (e) => {
+        const input = e.target as HTMLInputElement;
+        setBlurValid(input);
+      },
+      onFocus: (e) => {
+        const input = e.target as HTMLInputElement;
+        setFocusValid(input);
+      },
+    });
+
+    this.children.popupAddUserButton = new Button({
+      label: 'Добавить',
+      type: 'submit',
+      onClick: (e) => {
+        e.preventDefault();
+        const btn = e.target as HTMLElement;
+        const currentForm = btn.closest('form') as HTMLFormElement;
+        const isFormValid = setFormValid(currentForm);
+        if (isFormValid) {
+          getFormData(currentForm);
+          currentForm.reset();
+          currentForm.closest('.popup')!.classList.remove('popup_opened');
+        }
+      },
+    });
+
+    this.children.popupRemoveUserButton = new Button({
+      label: 'Удалить',
+      type: 'submit',
+      onClick: (e) => {
+        e.preventDefault();
+        const btn = e.target as HTMLElement;
+        const currentForm = btn.closest('form') as HTMLFormElement;
+        const isFormValid = setFormValid(currentForm);
+        if (isFormValid) {
+          getFormData(currentForm);
+          currentForm.reset();
+          currentForm.closest('.popup')!.classList.remove('popup_opened');
+        }
+      },
     });
   }
 

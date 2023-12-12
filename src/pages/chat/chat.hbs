@@ -29,11 +29,15 @@
       {{/each}}
       <nav class='menu-burger'>
         <ul class='menu-burger__list'>
-          <li><button class='menu-burger__link menu-burger__link_add text-link'>Добавить пользователя</button></li>
-          <li><button class='menu-burger__link menu-burger__link_delete text-link'>Удалить пользователя</button></li>
+          <li><button
+              class='menu-burger__link menu-burger__link_add text-link'
+            >Добавить пользователя</button></li>
+          <li><button
+              class='menu-burger__link menu-burger__link_delete text-link'
+            >Удалить пользователя</button></li>
         </ul>
       </nav>
-      {{!-- <nav class='menu-burger'>
+      {{! <nav class='menu-burger'>
         <ul class='menu-burger__list'>
           <li><a
               class='menu-burger__link menu-burger__link_add text-link'
@@ -44,12 +48,18 @@
               href='../remove_user/'
             >Удалить пользователя</a></li>
         </ul>
-      </nav> --}}
+      </nav> }}
       <nav class='menu-attach'>
         <ul class='menu-attach__list'>
-          <li><button class='menu-attach__link menu-attach__link_foto text-link'>Фото и видео</button></li>
-          <li><button class='menu-attach__link menu-attach__link_file text-link'>Файл</button></li>
-          <li><button class='menu-attach__link menu-attach__link_location text-link'>Локация</button></li>
+          <li><button
+              class='menu-attach__link menu-attach__link_foto text-link'
+            >Фото и видео</button></li>
+          <li><button
+              class='menu-attach__link menu-attach__link_file text-link'
+            >Файл</button></li>
+          <li><button
+              class='menu-attach__link menu-attach__link_location text-link'
+            >Локация</button></li>
         </ul>
       </nav>
     </section>
@@ -83,4 +93,24 @@
       </form>
     </div>
   </footer>
+  <div class='popup' id='add-user'>
+    <div class='popup__wrapper'>
+      {{{popupAddUserTitle}}}
+      <form name='add-user' class='user-form'>
+        {{{popupAddUserInput}}}
+        <p class='user-form_error'></p>
+        {{{popupAddUserButton}}}
+      </form>
+    </div>
+  </div>
+  <div class='popup' id='remove-user'>
+    <div class='popup__wrapper'>
+      {{{popupRemoveUserTitle}}}
+      <form name='add-user' class='user-form'>
+        {{{popupRemoveUserInput}}}
+        <p class='user-form_error'></p>
+        {{{popupRemoveUserButton}}}
+      </form>
+    </div>
+  </div>
 </div>

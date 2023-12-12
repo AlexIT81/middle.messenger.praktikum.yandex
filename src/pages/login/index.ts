@@ -5,23 +5,11 @@ import Input from '../../components/Input';
 import Button from '../../components/Button';
 import ButtonNav from '../../components/ButtonNav';
 import render from '../../utils/render';
-import validationData from '../../utils/validation';
+import validationData from '../../utils/validationData';
+import { setBlurValid, setFocusValid, setFormValid } from '../../utils/validation';
+import getFormData from '../../utils/getFormData';
 
 export default class Login extends Block {
-  private _blurValid(element: HTMLInputElement, message: string, regex: RegExp): void {
-    const errorContainer = element.nextElementSibling as HTMLElement;
-    if (!regex.test(element.value)) {
-      element.classList.add('input__inner_error');
-      errorContainer.innerText = message;
-    }
-  }
-
-  private _focusValid(element: HTMLInputElement): void {
-    const errorContainer = element.nextElementSibling as HTMLElement;
-    if (element.classList.contains('input__inner_error')) element.classList.remove('input__inner_error');
-    errorContainer.innerText = '';
-  }
-
   init() {
     this.children.inputLogin = new Input({
       label: 'Логин',
@@ -30,11 +18,11 @@ export default class Login extends Block {
       type: 'text',
       onBlur: (e) => {
         const input = e.target as HTMLInputElement;
-        this._blurValid(input, validationData.login.errorMessage, validationData.login.regex);
+        setBlurValid(input);
       },
       onFocus: (e) => {
         const input = e.target as HTMLInputElement;
-        this._focusValid(input);
+        setFocusValid(input);
       },
     });
 
@@ -45,19 +33,26 @@ export default class Login extends Block {
       type: 'password',
       onBlur: (e) => {
         const input = e.target as HTMLInputElement;
-        this._blurValid(input, validationData.password.errorMessage, validationData.password.regex);
+        setBlurValid(input);
       },
       onFocus: (e) => {
         const input = e.target as HTMLInputElement;
-        this._focusValid(input);
+        setFocusValid(input);
       },
     });
 
     this.children.button = new Button({
       label: 'Войти',
       type: 'submit',
-      onClick: () => {
-        console.log('submit');
+      onClick: (e) => {
+        e.preventDefault();
+        const btn = e.target as HTMLElement;
+        const currentForm = btn.closest('form') as HTMLFormElement;
+        const isFormValid = setFormValid(currentForm);
+        if (isFormValid) {
+          getFormData(currentForm);
+          currentForm.reset();
+        }
       },
     });
 
