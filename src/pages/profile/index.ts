@@ -8,6 +8,7 @@ import InputProfile from '../../components/InputProfile';
 import ButtonNav from '../../components/ButtonNav';
 import render from '../../utils/render';
 import Button from '../../components/Button';
+import router from '../../utils/Router';
 
 export default class Profile extends Block {
   init() {
@@ -92,7 +93,7 @@ export default class Profile extends Block {
       label: 'Изменить данные',
       type: 'button',
       onClick: () => {
-        render('profileEdit');
+        router.go('/settings-edit');
       },
     });
 
@@ -100,7 +101,7 @@ export default class Profile extends Block {
       label: 'Изменить пароль',
       type: 'button',
       onClick: () => {
-        render('profileEditPassword');
+        router.go('/settings-edit-password');
       },
     });
 
@@ -109,7 +110,7 @@ export default class Profile extends Block {
       type: 'button',
       warning: true,
       onClick: () => {
-        render('login');
+        router.go('/');
       },
     });
 

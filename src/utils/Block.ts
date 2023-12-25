@@ -193,7 +193,6 @@ abstract class Block<Props extends Record<string, any> = unknown> {
   }
 
   private _makePropsProxy(props: any) {
-    // Ещё один способ передачи this, но он больше не применяется с приходом ES6+
     const self = this;
 
     return new Proxy(props, {
@@ -216,7 +215,6 @@ abstract class Block<Props extends Record<string, any> = unknown> {
   }
 
   private _createDocumentElement(tagName: string) {
-    // Можно сделать метод, который через фрагменты в цикле создаёт сразу несколько блоков
     return document.createElement(tagName);
   }
 
@@ -225,7 +223,9 @@ abstract class Block<Props extends Record<string, any> = unknown> {
   }
 
   public hide() {
-    this.getContent()!.style.display = 'none';
+    // this.getContent()!.style.display = 'none';
+    // this.getContent()!.remove();
+    this.element.remove();
   }
 }
 

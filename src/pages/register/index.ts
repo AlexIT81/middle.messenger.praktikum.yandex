@@ -7,6 +7,7 @@ import ButtonNav from '../../components/ButtonNav';
 import render from '../../utils/render';
 import { setBlurValid, setFocusValid, setFormValid } from '../../utils/validation';
 import getFormData from '../../utils/getFormData';
+import router from '../../utils/Router';
 
 export default class Register extends Block {
   init() {
@@ -135,7 +136,7 @@ export default class Register extends Block {
       label: 'Войти?',
       type: 'button',
       onClick: () => {
-        render('login');
+        router.go('/');
       },
     });
   }

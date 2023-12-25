@@ -9,6 +9,7 @@ import Button from '../../components/Button';
 import render from '../../utils/render';
 import { setBlurValid, setFocusValid, setFormValid } from '../../utils/validation';
 import getFormData from '../../utils/getFormData';
+import router from '../../utils/Router';
 
 export default class ProfileEdit extends Block {
   init() {
@@ -134,7 +135,7 @@ export default class ProfileEdit extends Block {
         if (isFormValid) {
           getFormData(currentForm);
           currentForm.reset();
-          render('profile');
+          // router.go('/settings');
         }
       },
     });
@@ -144,7 +145,7 @@ export default class ProfileEdit extends Block {
       type: 'button',
       warning: true,
       onClick: () => {
-        render('profile');
+        router.go('/settings');
       },
     });
   }

@@ -8,6 +8,7 @@ import render from '../../utils/render';
 import validationData from '../../utils/validationData';
 import { setBlurValid, setFocusValid, setFormValid } from '../../utils/validation';
 import getFormData from '../../utils/getFormData';
+import router from '../../utils/Router';
 
 export default class Login extends Block {
   init() {
@@ -60,7 +61,7 @@ export default class Login extends Block {
       label: 'Нет аккаунта?',
       type: 'button',
       onClick: () => {
-        render('register');
+        router.go('/sign-up');
       },
     });
   }

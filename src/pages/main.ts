@@ -1,63 +1,90 @@
 import '../styles/style.css';
 import render from '../utils/render';
+import router from '../utils/Router';
+import Login from './login';
+import Register from './register';
+import Error404 from './404';
+import Error500 from './500';
+import Profile from './profile';
+import Chat from './chat';
+import ProfileEdit from './profile_edit';
+import ProfileEditPassword from './profile_edit_password';
+import { setFormValid } from '../utils/validation';
 
 window.addEventListener('DOMContentLoaded', () => {
-  const tempMenu = document.createElement('nav');
-  tempMenu.classList.add('temp-menu');
-  tempMenu.innerHTML = `
-  <ul class="temp-menu__list">
-    <li class="temp-menu__list-item"><button class="temp-menu__button btn-link" type="button" id="p404">404</button></li>
-    <li class="temp-menu__list-item"><button class="temp-menu__button btn-link" type="button" id="p500">500</button></li>
-    <li class="temp-menu__list-item"><button class="temp-menu__button btn-link" type="button" id="login">Логин</button></li>
-    <li class="temp-menu__list-item"><button class="temp-menu__button btn-link" type="button" id="register">Регистрация</button></li>
-    <li class="temp-menu__list-item"><button class="temp-menu__button btn-link" type="button" id="profile">Профайл</button></li>
-    <li class="temp-menu__list-item"><button class="temp-menu__button btn-link" type="button" id="profile-edit">Профайл редактирование профиля</button></li>
-    <li class="temp-menu__list-item"><button class="temp-menu__button btn-link" type="button" id="profile-edit-password">Профайл сменить пароль</button></li>
-    <li class="temp-menu__list-item"><button class="temp-menu__button btn-link" type="button" id="chat">Чат</button></button></li>
-  </ul>
-  `;
-  const root = document.querySelector('#nav');
-  root!.appendChild(tempMenu);
+  router
+    .use('/', Login)
+    .use('/sign-up', Register)
+    .use('/404', Error404)
+    .use('/500', Error500)
+    .use('/settings-edit', ProfileEdit)
+    .use('/settings-edit-password', ProfileEditPassword)
+    .use('/settings', Profile)
+    .use('/messenger', Chat);
 
-  const page404 = document.querySelector('#p404');
-  page404!.addEventListener('click', () => {
-    render('error404');
-  });
+  router.start();
+  // У всех страниц должен быть собственный роут:
+  // / — страница входа,
+  // /sign-up — страница регистрации,
+  // /settings — настройки профиля пользователя,
+  // /messenger — чат.
 
-  const page500 = document.querySelector('#p500');
-  page500!.addEventListener('click', () => {
-    render('error500');
-  });
+  const buttonProfile = document.querySelector('.footer-aside__profile-btn') as HTMLElement;
+  if (buttonProfile) { buttonProfile.addEventListener('click', () => router.go('/settings')); }
 
-  const login = document.querySelector('#login');
-  login!.addEventListener('click', () => {
-    render('login');
-  });
+  const buttonExit = document.querySelector('.footer-aside__exit-btn') as HTMLElement;
+  if (buttonExit) { buttonExit.addEventListener('click', () => router.go('/')); }
 
-  const register = document.querySelector('#register');
-  register!.addEventListener('click', () => {
-    render('register');
-  });
+  const buttonBurget = document.querySelector('.header-main__menu-button') as HTMLElement;
+  const menuBurger = document.querySelector('.menu-burger') as HTMLElement;
+  if (buttonBurget) {
+    buttonBurget.addEventListener('click', () => {
+      menuBurger.classList.toggle('menu-visible');
+    });
+  }
 
-  const profile = document.querySelector('#profile');
-  profile!.addEventListener('click', () => {
-    render('profile');
-  });
+  const buttonAttach = document.querySelector('.footer-main__attach-btn') as HTMLElement;
+  const menuAttach = document.querySelector('.menu-attach') as HTMLElement;
+  if (buttonAttach) {
+    buttonAttach.addEventListener('click', () => {
+      menuAttach.classList.toggle('menu-visible');
+    });
+  }
 
-  const profileEdit = document.querySelector('#profile-edit');
-  profileEdit!.addEventListener('click', () => {
-    render('profileEdit');
-  });
+  const buttonMessageSubmit = document.querySelector('.footer-main__send-btn') as HTMLButtonElement;
+  if (buttonMessageSubmit) {
+    buttonMessageSubmit.addEventListener('click', (e) => {
+      e.preventDefault();
+      const currentForm = buttonMessageSubmit.closest('form') as HTMLFormElement;
+      const isFormValid = setFormValid(currentForm);
+      if (isFormValid) {
+        currentForm.reset();
+      }
+    });
+  }
 
-  const profileEditPassword = document.querySelector('#profile-edit-password');
-  profileEditPassword!.addEventListener('click', () => {
-    render('profileEditPassword');
-  });
+  // Бургер меню, попапы пока не компоненты
+  const buttonAddUser = document.querySelector('.menu-burger__link_add');
+  const popupAddUser = document.querySelector('#add-user') as HTMLDivElement;
+  if (buttonAddUser) {
+    buttonAddUser.addEventListener('click', () => {
+      if (popupAddUser) popupAddUser.classList.add('popup_opened');
+      popupAddUser.addEventListener('click', (e) => {
+        const eventTarget = e.target as HTMLElement;
+        if (eventTarget.classList.contains('popup_opened')) popupAddUser.classList.remove('popup_opened');
+      });
+    });
+  }
 
-  const chat = document.querySelector('#chat');
-  chat!.addEventListener('click', () => {
-    render('chat');
-  });
-
-  render('chat');
+  const buttonRemoveUser = document.querySelector('.menu-burger__link_delete');
+  const popupRemoveUser = document.querySelector('#remove-user') as HTMLDivElement;
+  if (buttonRemoveUser) {
+    buttonRemoveUser.addEventListener('click', () => {
+      if (popupRemoveUser) popupRemoveUser.classList.add('popup_opened');
+      popupRemoveUser.addEventListener('click', (e) => {
+        const eventTarget = e.target as HTMLElement;
+        if (eventTarget.classList.contains('popup_opened')) popupRemoveUser.classList.remove('popup_opened');
+      });
+    });
+  }
 });

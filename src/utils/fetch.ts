@@ -58,7 +58,7 @@ export default class HTTPTransport {
       //   xhr.abort();
       // }, timeout);
 
-      xhr.onload = function () {
+      xhr.onload = () => {
         // clearTimeout(doTimeout);
         resolve(xhr);
       };
@@ -67,11 +67,14 @@ export default class HTTPTransport {
       xhr.onerror = reject;
 
       xhr.timeout = timeout;
+      xhr.withCredentials = true;
       xhr.ontimeout = reject;
       xhr.responseType = 'json';
 
       if (method === METHODS.GET || !data) {
         xhr.send();
+      } else if (data instanceof FormData) {
+        xhr.send(data);
       } else {
         xhr.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
         xhr.send(JSON.stringify(data));
